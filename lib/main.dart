@@ -1,7 +1,7 @@
 import 'package:cart_app/controller/cart_controller.dart';
 import 'package:cart_app/controller/popular_product_controller.dart';
 import 'package:cart_app/controller/recommended_product_controller.dart';
-import 'package:cart_app/pages/auth/sign_in_page.dart';
+import 'package:cart_app/routes/route_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -22,11 +22,11 @@ class MyApp extends StatelessWidget {
     return GetBuilder<PopularProductController>(builder: (_) {
       return GetBuilder<RecommendedProductController>(
         builder: (_) {
-          return const GetMaterialApp(
+          return GetMaterialApp(
             debugShowCheckedModeBanner: false,
-            home: SignInPage(),
-            //initialRoute: RouteHelper.getSplashScreen(),
-            //getPages: RouteHelper.routes,
+            //home: SignInPage(),
+            initialRoute: RouteHelper.getSplashScreen(),
+            getPages: RouteHelper.routes,
           );
         },
       );
