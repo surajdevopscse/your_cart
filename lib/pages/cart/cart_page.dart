@@ -2,6 +2,7 @@ import 'package:cart_app/common_widget/app_icon.dart';
 import 'package:cart_app/common_widget/big_text.dart';
 import 'package:cart_app/common_widget/no_data_page.dart';
 import 'package:cart_app/common_widget/small_text.dart';
+import 'package:cart_app/controller/auth_controller.dart';
 import 'package:cart_app/controller/cart_controller.dart';
 import 'package:cart_app/controller/popular_product_controller.dart';
 import 'package:cart_app/controller/recommended_product_controller.dart';
@@ -309,7 +310,11 @@ class CartPage extends StatelessWidget {
                       ),
                       child: GestureDetector(
                         onTap: () {
-                          cartController.addToHistory();
+                          if (Get.find<AuthController>().userLoggedIn()) {
+                            cartController.addToHistory();
+                          } else {
+                            Get.toNamed(RouteHelper.getSignInPage());
+                          }
                         },
                         child: BigText(
                           text: "Checkout",

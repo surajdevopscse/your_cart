@@ -70,4 +70,9 @@ class CartRepo {
     sharedPreferences.remove(AppConstants.CART_LIST);
     sharedPreferences.remove(AppConstants.CART_HISTORY_LIST);
   }
+
+  void clearCartHistory() {
+    removeCart();
+    clearAllData();
+  }
 }
